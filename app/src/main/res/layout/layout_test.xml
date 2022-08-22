@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.stream.views.StreamFragment"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progress_circle"
+            android:layout_width="90dp"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tapToLoad"
+            android:src="@drawable/ic_baseline_cloud_download_24"
+            android:layout_height="90dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:text="Tap to load data"
+            android:gravity="center_horizontal"
+            android:id="@+id/nodatayet"
+            android:layout_marginTop="80dp"
+            android:textSize="18sp"
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_height="wrap_content"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+           android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/content_stream" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="90dp"
+        android:layout_marginEnd="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@android:drawable/ic_menu_upload" />
+
+</RelativeLayout>

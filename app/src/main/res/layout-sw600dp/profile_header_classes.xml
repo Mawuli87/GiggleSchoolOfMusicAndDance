@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_alignParentStart="true"
+    android:layout_toStartOf="@id/cancel"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_header"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:background="@drawable/circular_background"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Extra Classes"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Extra classes"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Extra classes in math,science and English can help  students to feel more secure in their grasp of the material, which will pave the way for improved self-esteem and better academic results in the long run. These are just a few of the benefits of our extra classes"
+                    android:textColor="@color/white"
+                    android:textSize="34sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_education_class" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="English \n Maths \n Science \n French and more"
+                    android:textColor="@color/white"
+                    android:textSize="36sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+
+                    <!--                    <Button-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:text="Call Giggle for more info"-->
+                    <!--                        android:id="@+id/server_one"-->
+                    <!--                        android:textAllCaps="false"-->
+                    <!--                        android:layout_height="wrap_content"/>-->
+
+                    <!--                    <Button-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:text="Chat with Giggle Agent"-->
+                    <!--                        android:id="@+id/server_two"-->
+                    <!--                        android:textAllCaps="false"-->
+                    <!--                        android:layout_height="wrap_content"/>-->
+
+                    <!--                    <Button-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:text="Send Email to Giggle"-->
+                    <!--                        android:id="@+id/server_three"-->
+                    <!--                        android:textAllCaps="false"-->
+                    <!--                        android:layout_height="wrap_content"/>-->
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"
+                android:paddingLeft="0dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"
+                android:src="@drawable/ic_close_black_24dp" />
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

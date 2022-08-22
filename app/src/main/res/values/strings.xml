@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Giggle Music &amp; Piano</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="education">Classes</string>
+    <string name="violin">Violin</string>
+    <string name="ballet">Ballet</string>
+    <string name="piano">Piano</string>
+    <string name="studio">Studio</string>
+    <string name="dance">Dance</string>
+    <string name="swimming">Swimming</string>
+    <string name="adult">Adults Training</string>
+    <string name="it_text">IT Center</string>
+    <string name="language">Languages</string>
+    <string name="animations">Animation class</string>
+    <string name="animations_description">Participants will learn how to design objects put them together and link them with animations using a software</string>
+    <string name="coding_class">Web Development</string>
+    <string name="web_development">Participants will learn how to code starting from basics static website to advanced website.</string>
+    <string name="java_coding_class">"Start Learning Programming languages "</string>
+    <string name="java_for_mobile">Learn java and start developing mobile apps and game for android platform.</string>
+    <string name="mobile_class">Mobile apps development with Flutter , Java and kotlin</string>
+    <string name="mobile_development">This course prepares you toward a career in mobile apps development using the latest framework . Programming has become the most in demand skill in the tech industry now .</string>
+    <string name="negative_button_label">No</string>
+    <string name="positive_button_label">Yes</string>
+    <string name="title">Login Error</string>
+    <string name="description">Please cross check your details.If they are correct.</string>
+    <string name="title_success">Registered Successfully</string>
+    <string name="description_success">Your account has been created.Login to continue</string>
+    <string name="positive_button_label_success">Login</string>
+    <string name="negative_button_label_success">Later</string>
+    <string name="title_post">Post To Stream</string>
+    <string name="description_stream">Only selected people are allowed to post information on this platform.If you are one of the then click proceed.</string>
+    <string name="positive_button_label_feed">Proceed</string>
+    <string name="negative_button_label_feed">Return</string>
+
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_def_value">1</string>
+    <string name="messages_header">Update your info</string>
+
+
+</resources>

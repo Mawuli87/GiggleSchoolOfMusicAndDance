@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/streamFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.StreamFragment"
+        android:label="Stream"
+        tools:layout="@layout/fragment_stream" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.GalleryFragment"
+        android:label="Gallery"
+        tools:layout="@layout/fragment_gallery" />
+    <activity
+        android:id="@+id/settingsActivity"
+        android:name="com.messieyawo.gigglemusicpiano.activities.SettingsActivity"
+        android:label="SettingsActivity" />
+        <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.ProfileFragment"
+        android:label="Announcements"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

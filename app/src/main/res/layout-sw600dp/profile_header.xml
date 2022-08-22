@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_alignParentStart="true"
+    android:layout_toStartOf="@id/cancel"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+<!--           <TextView-->
+<!--               android:id="@+id/text_header"-->
+<!--               android:layout_width="70dp"-->
+<!--               android:layout_height="70dp"-->
+<!--               android:background="@drawable/circular_background"-->
+<!--               android:gravity="center"-->
+<!--               android:text="Adult Learning"-->
+<!--               android:textColor="@color/white"-->
+<!--               android:textSize="14sp" />-->
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:orientation="vertical"
+               android:paddingStart="10dp"
+               android:paddingLeft="10dp"
+               android:paddingRight="10dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/poppins_bold"
+                   android:text="Adult Learning"
+                   android:textSize="20sp"
+                   android:textColor="@color/white"
+                   android:textStyle="bold" />
+
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:textColor="@color/white"
+                   android:layout_height="wrap_content"
+                   android:textSize="34sp"
+                   android:text=" Harness the experience and self-direction of adult learners in all your development initiatives.\nPractices for successful adult learning differ greatly from those for teaching children. In this interactive On Demand adult training program, you will gain foundational knowledge of the theories underlying best practices for adult learning in our workplace and discover strategies to add to your learning and education toolbox.\n\n" />
+
+
+
+               <androidx.cardview.widget.CardView
+                   android:layout_width="match_parent"
+                   app:cardCornerRadius="20dp"
+                   android:layout_height="wrap_content">
+                   <ImageView
+                       android:layout_width="match_parent"
+                       android:layout_height="350dp"
+                       android:src="@drawable/adult"
+                       android:scaleType="centerInside"
+                       android:id="@+id/adult_photo" />
+               </androidx.cardview.widget.CardView>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:fontFamily="@font/poppins_bold"
+                   android:text="Piano \n Guitar \n Violin"
+                   android:textSize="36sp"
+                   android:textColor="@color/white"
+                   android:layout_height="wrap_content"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:fontFamily="@font/poppins_bold"
+                   android:text="General French \n Educational French \n Travelling French \n Business French"
+                   android:textSize="36sp"
+                   android:textColor="@color/white"
+                   android:layout_height="wrap_content"/>
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_marginTop="20dp"
+                   android:orientation="vertical"
+                   android:layout_height="match_parent"
+                   android:layout_margin="5dp">
+
+
+<!--                   <Button-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:text="Call Giggle for more info"-->
+<!--                       android:id="@+id/server_one"-->
+<!--                       android:textAllCaps="false"-->
+<!--                       android:layout_height="wrap_content"/>-->
+
+<!--                   <Button-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:text="Chat with Giggle Agent"-->
+<!--                       android:id="@+id/server_two"-->
+<!--                       android:textAllCaps="false"-->
+<!--                       android:layout_height="wrap_content"/>-->
+
+<!--                   <Button-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:text="Send Email to Giggle"-->
+<!--                       android:id="@+id/server_three"-->
+<!--                       android:textAllCaps="false"-->
+<!--                       android:layout_height="wrap_content"/>-->
+
+
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <ImageView
+               android:id="@+id/cancel"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_alignParentEnd="true"
+               android:padding="10dp"
+               android:paddingLeft="0dp"
+               android:paddingEnd="0dp"
+               android:paddingRight="0dp"
+               android:src="@drawable/ic_close_black_24dp" />
+       </RelativeLayout>
+
+   </ScrollView>
+
+</RelativeLayout>
