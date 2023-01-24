@@ -9,7 +9,23 @@
         android:id="@+id/homeFragment"
         android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_coursesFragment"
+            app:destination="@id/coursesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chatWithUsFragment"
+            app:destination="@id/chatWithUsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_packagesFragment"
+            app:destination="@id/packagesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/streamFragment"
         android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.StreamFragment"
@@ -24,9 +40,49 @@
         android:id="@+id/settingsActivity"
         android:name="com.messieyawo.gigglemusicpiano.activities.SettingsActivity"
         android:label="SettingsActivity" />
-        <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.ProfileFragment"
-        android:label="Announcements"
-        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.CoursesFragment"
+        android:label="What we do"
+        tools:layout="@layout/fragment_courses" >
+        <action
+            android:id="@+id/action_coursesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatWithUsFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.ChatWithUsFragment"
+        android:label="Contact us"
+        tools:layout="@layout/fragment_chat_with_us" >
+        <action
+            android:id="@+id/action_chatWithUsFragment_to_instagramFragment"
+            app:destination="@id/instagramFragment" />
+        <action
+            android:id="@+id/action_chatWithUsFragment_to_facebookFragment"
+            app:destination="@id/facebookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.CalendarFragment"
+        android:label="Academic Year"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/packagesFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.PackagesFragment"
+        android:label="Giggle Packages"
+        tools:layout="@layout/fragment_packages" />
+    <fragment
+        android:id="@+id/facebookFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.FacebookFragment"
+        android:label=""
+        tools:layout="@layout/fragment_facebook" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/instagramFragment"
+        android:name="com.messieyawo.gigglemusicpiano.fragments.stream.views.InstagramFragment"
+        android:label=""
+        tools:layout="@layout/fragment_instagram" >
+
+    </fragment>
 </navigation>

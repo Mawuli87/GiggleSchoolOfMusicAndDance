@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.stream.views.CalendarFragment">
+
+
+
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:orientation="vertical"
+           android:layout_marginBottom="40dp"
+             android:layout_height="wrap_content">
+             <!--text view for displaying the selected date-->
+             <TextView
+                 android:id="@+id/idTVDate"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="8dp"
+                 android:layout_marginTop="8dp"
+                 android:layout_marginEnd="8dp"
+                 android:layout_marginBottom="8dp"
+                 android:gravity="center"
+                 android:padding="8dp"
+                 android:text="ACADEMIC YEAR:"
+                 android:textAlignment="center"
+                 android:textColor="@color/white"
+                 android:textSize="40sp"
+                 android:textStyle="bold" />
+
+             <!-- Add CalendarView to display the Calendar -->
+             <CalendarView
+                 android:id="@+id/calendarView"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/idTVDate"
+                 android:layout_marginTop="30dp" />
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:textSize="34sp"
+                 android:textColor="@color/white"
+                 android:textAlignment="textStart"
+                 android:padding="20dp"
+                 android:fontFamily="@font/cambo"
+                 android:text="Giggle runs three terms in a year from January to December. \n \n .Term 1, January to April \n .Term 2, May to August \n .Term 3, September to December "
+                 android:layout_height="wrap_content"/>
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:text="EXAMINATION"
+                 android:textAlignment="textStart"
+                 android:padding="20sp"
+                 android:textSize="34sp"
+                 android:fontFamily="@font/poppins_bold"
+                 android:layout_height="wrap_content"/>
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:textAlignment="textStart"
+                 android:padding="5dp"
+                 android:textSize="34sp"
+                 android:fontFamily="@font/cambo"
+                 android:text="All students are assessed and examined at the end of the year to ensure that the foundation and the mandatory modules have been understood and applied. Practical assessment is continuous all through the course in preparation for the external Examination assessment requirement under the supervision of ABRSM (UK). We are affiliated to University of Ghana, UCC, and Winneba School of Education, they recognized and accept ABRSM certificates"
+                 android:layout_height="wrap_content"/>
+
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:padding="5dp"
+                 android:textSize="34sp"
+                 android:fontFamily="@font/cambo"
+                 android:text="All classes are on Saturdays. We have Morning/Afternoon Sessions (9am to 12pm/1pm to 4pm)"
+                 android:layout_height="wrap_content"/>
+
+
+         </LinearLayout>
+
+
+     </ScrollView>
+
+
+</LinearLayout>

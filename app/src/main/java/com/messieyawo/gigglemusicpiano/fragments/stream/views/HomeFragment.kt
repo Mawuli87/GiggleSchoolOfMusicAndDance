@@ -1,15 +1,20 @@
 package com.messieyawo.gigglemusicpiano.fragments.stream.views
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.messieyawo.gigglemusicpiano.R
 import com.messieyawo.gigglemusicpiano.databinding.FragmentHomeBinding
+import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -23,278 +28,85 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         homeBinding = FragmentHomeBinding.inflate(inflater,container, false)
 
-            //adult
-        homeBinding.adultLearning.setOnClickListener {
-            openAdultLearningDialog()
-        }
-              //classes
-        homeBinding.classes.setOnClickListener {
-            openClassesDialog()
-        }
-         //swimming
-        homeBinding.swimming.setOnClickListener {
-            openSwimmingDialog()
-        }
-        //danse class
-        homeBinding.danceClass.setOnClickListener {
-            openDanseDialog()
-        }
-        //ballet kids
-        homeBinding.balletKids.setOnClickListener {
-            onpenBalletKids()
-        }
-        //it center
-        homeBinding.itCenter.setOnClickListener {
-            openItDialogBox()
-        }
-        homeBinding.studio.setOnClickListener {
-            openStudio()
-        }
-
-        homeBinding.piano.setOnClickListener {
-            openPianoDialog()
-        }
-
-        homeBinding.violin.setOnClickListener {
-            openPianoDialog()
-        }
         return homeBinding.root
     }
 
-    private fun openPianoDialog() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_piano)
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
+        homeBinding.goCoursesFragment?.setOnClickListener {
+         val action = HomeFragmentDirections.actionHomeFragmentToCoursesFragment()
+            findNavController().navigate(action)
         }
 
-
-
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
-    }
-
-
-    private fun openAdultLearningDialog() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog)
-
-
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
+        homeBinding.chatWithUs?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToChatWithUsFragment()
+            findNavController().navigate(action)
         }
 
-
-
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
-    }
-
-
-    private fun openClassesDialog() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_classes)
-
-
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
+        homeBinding.packages?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToChatWithUsFragment()
+            findNavController().navigate(action)
         }
 
-
-
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
-    }
-
-
-    private fun openSwimmingDialog() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_swimming)
-
-
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
+        homeBinding.calendar?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToCalendarFragment()
+            findNavController().navigate(action)
         }
 
-
-
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
-    }
-
-
-    private fun  openStudio() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_studio)
-
-
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
+        homeBinding.packages?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToPackagesFragment()
+            findNavController().navigate(action)
+        }
+        homeBinding.gallery?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
+            findNavController().navigate(action)
         }
 
+        homeBinding.location?.setOnClickListener {
+            openMap()
+        }
+        //
 
 
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
     }
 
 
 
+    fun openMap(){
+        val alert: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
+        val mView: View = layoutInflater.inflate(R.layout.custom_dialog, null)
+        //val txt_inputText = mView.findViewById(R.id.txt_input) as EditText
+        val btn_name: Button = mView.findViewById(R.id.locationName) as Button
+        btn_name.text = "Giggle School of Music and dance location"
+        val btn_cancel: Button = mView.findViewById(R.id.btn_cancel) as Button
+        val btn_okay: Button = mView.findViewById(R.id.btn_okay) as Button
+        alert.setView(mView)
+        val alertDialog: AlertDialog = alert.create()
+        alertDialog.setCanceledOnTouchOutside(false)
+        btn_cancel.setOnClickListener { alertDialog.dismiss() }
+        btn_okay.setOnClickListener { // myCustomMessage.setText(txt_inputText.text.toString())
+            //alertDialog.dismiss()
 
-    private fun openDanseDialog() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_dance)
+//            val gmmIntentUri: Uri = Uri.parse("google.navigation:q=37.4219983,-122.084")
+//            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+//            mapIntent.setPackage("com.google.android.apps.maps")
+//            startActivity(mapIntent)
 
 
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
+            val uri: String = java.lang.String.format(
+                Locale.ENGLISH,
+                "http://maps.google.com/maps?q=Giggle School of Music and Dance",
+                5.681525,
+                -0.2006533
+            )
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            startActivity(intent)
 
 
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
         }
-
-
-
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
+        alertDialog.show()
     }
 
-    private fun onpenBalletKids() {
-
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_ballet)
-
-
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
-        }
-
-
-
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
-    }
-
-    private fun openItDialogBox() {
-        val dialog = Dialog(requireActivity())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet_dialog_it)
-
-
-//        val editLayout = dialog.findViewById<Button>(R.id.server_one)
-//        val shareLayout = dialog.findViewById<Button>(R.id.server_two)
-//        val uploadLayout = dialog.findViewById<Button>(R.id.server_three)
-
-
-        val cancel = dialog.findViewById<ImageView>(R.id.cancel)
-        cancel.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        dialog.show()
-        dialog.window!!.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-        dialog.window!!.setGravity(Gravity.BOTTOM)
-    }
 }

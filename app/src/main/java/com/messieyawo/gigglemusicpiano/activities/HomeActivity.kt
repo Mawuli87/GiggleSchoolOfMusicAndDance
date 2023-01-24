@@ -1,21 +1,22 @@
 package com.messieyawo.gigglemusicpiano.activities
 
-import android.annotation.SuppressLint
-import android.app.*
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.text.Html
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -33,7 +34,7 @@ import com.messieyawo.gigglemusicpiano.R
 import com.messieyawo.gigglemusicpiano.databinding.ActivityHomeBinding
 import com.messieyawo.gigglemusicpiano.fragments.stream.notification.Notification
 import com.messieyawo.gigglemusicpiano.fragments.stream.notification.channelID
-import com.messieyawo.gigglemusicpiano.fragments.stream.upload.model.Users
+import com.messieyawo.gigglemusicpiano.fragments.stream.upload.model.Teacher
 import com.messieyawo.gigglemusicpiano.utils.RC_APP_UPDATE
 import guy4444.smartrate.SmartRate
 
@@ -43,20 +44,23 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var homeBinding: ActivityHomeBinding
     private lateinit var mNavController: NavController
     private lateinit var toolbar: Toolbar
-    private var title:String? = ""
-    private var descript:String? = ""
+    private var title: String? = ""
+    private var descript: String? = ""
 
     lateinit var mAppUpdateManager: AppUpdateManager
-    private var mAlarmManager : AlarmManager? = null
+    private var mAlarmManager: AlarmManager? = null
 
 //    private var alarmMgr: AlarmManager? = null
 //    private lateinit var alarmIntent: PendingIntent
 
-    private val database : FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val myReference : DatabaseReference = database.reference.child("MyUsers")
-    private val CheckForNewData:Boolean = false
+    private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private val myReference: DatabaseReference = database.reference.child("MyUsers")
+    private val CheckForNewData: Boolean = false
 
-   private var dataValue:String = ""
+    private var dataValue: String = ""
+
+    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,23 +73,22 @@ class HomeActivity : AppCompatActivity() {
         title = intent.getStringExtra("title").toString()
         descript = intent.getStringExtra("description").toString()
 
-       //show rate us
+        //show rate us
         showRateus()
         mNavController = findNavController(R.id.nav_host_fragment)
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.homeFragment, R.id.streamFragment,R.id.profileFragment, R.id.searchFragment
-        ))
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment, R.id.streamFragment, R.id.searchFragment
+            )
+        )
         setupActionBarWithNavController(mNavController, appBarConfiguration)
         homeBinding.bottomNavigationView.setupWithNavController(mNavController)
 
         //check for announcements
         checkIfData()
-
-
-
 
 
         //in app update initialization
@@ -113,6 +116,15 @@ class HomeActivity : AppCompatActivity() {
         }
 
 
+
+
+
+    }
+
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        return mNavController.navigateUp() || super.onSupportNavigateUp()
     }
 
     private val installStateUpdatedListener =
@@ -158,12 +170,14 @@ class HomeActivity : AppCompatActivity() {
         super.onStop()
     }
 
+        fun hideToolbar(){
+            homeBinding.hideActionBar?.visibility = View.GONE
+        }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_home, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -181,53 +195,23 @@ class HomeActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    override fun onBackPressed() {
-//        AlertDialog.Builder(this)
-//            .setTitle("Exit GIGGLE App")
-//            .setIcon(resources.getDrawable(R.drawable.ic_warning))
-//            .setMessage("Are you sure you want to exit this app.")
-//            .setNegativeButton(android.R.string.no, null)
-//            .setPositiveButton(android.R.string.yes
-//            ) { _, _ ->
-//                finishAffinity()
-//            }.create().show()
 
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setTitle(Html.fromHtml("<font color='#FF7F27'>Exit Giggle App</font>"))
-        builder.setIcon(resources.getDrawable(R.drawable.ic_warning))
-        builder.setMessage(Html.fromHtml("<font color='#FFFFFF'>    </font>"))
-        builder.setPositiveButton(
-            Html.fromHtml("<font color='#FF7F27'>Yes</font>")
-        ) { dialog, arg1 -> Log.e(LOG_TAG, "Yes")
-            finishAffinity()
-        }
-        builder.setNegativeButton(
-            Html.fromHtml("<font color='#FF7F27'>No</font>")
-        ) { dialog, arg1 -> Log.e(LOG_TAG, "No")
-           dialog.dismiss()
-        }
-        builder.create()
-        builder.show()
-
+    fun showRateus() {
+        // For continual calls -
+        SmartRate.Rate(
+            this, "Rate Us" // title - optional
+            , "Tell others what you think about this Giggle app" // content - optional
+            , "Continue" // OK button text - optional
+            , "Ask me later" // later button text - optional
+            , "Never ask again" // stop asking button text - optional
+            , "Thanks for the feedback" // thanks message to low star users - optional
+            , Color.parseColor("#2196F3") // dialog theme color
+            , 4 // open google play from _ stars  1..5 - optional
+            , 78 // time between calls (unit: Hours) - default is 6 days
+            ,
+            48 // Time to wait until you start asking for the first time (unit: Hours) - default is 3 days
+        )
     }
-
-fun showRateus(){
-    // For continual calls -
-    SmartRate.Rate(this
-        , "Rate Us" // title - optional
-        , "Tell others what you think about this Giggle app" // content - optional
-        , "Continue" // OK button text - optional
-        , "Ask me later" // later button text - optional
-        , "Never ask again" // stop asking button text - optional
-        , "Thanks for the feedback" // thanks message to low star users - optional
-        , Color.parseColor("#2196F3") // dialog theme color
-        , 4 // open google play from _ stars  1..5 - optional
-        , 78 // time between calls (unit: Hours) - default is 6 days
-        ,
-        48 // Time to wait until you start asking for the first time (unit: Hours) - default is 3 days
-    )
-}
 
 //    private fun fireNotificationIntent(dataValue: String) {
 //        alarmMgr = getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -242,10 +226,13 @@ fun showRateus(){
 //        )
 //    }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun launChNotificationRequest() {
         val mIntent = Intent(this, Notification::class.java)
-        val mPendingIntent = PendingIntent.getBroadcast(this, 0, mIntent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
+        val mPendingIntent = PendingIntent.getBroadcast(
+            this, 0, mIntent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
         mAlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         mAlarmManager!!.setRepeating(
             AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
@@ -254,20 +241,21 @@ fun showRateus(){
     }
 
 
-    fun checkIfData(){
+    fun checkIfData() {
         myReference.addValueEventListener(object : ValueEventListener {
+            @RequiresApi(Build.VERSION_CODES.M)
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 for (eachUser in snapshot.children) {
 
-                    val user = eachUser.getValue(Users::class.java)
-                   // val user2 = eachUser.getValue(Users::class.java)
+                    val user = eachUser.getValue(Teacher::class.java)
+                    // val user2 = eachUser.getValue(Users::class.java)
 
                     if (user != null) {
-                        dataValue = user.postId
+                        dataValue = user.name.toString()
                         createNotificationChannel()
-                         launChNotificationRequest()
-                       // fireNotificationIntent(dataValue)
+                        launChNotificationRequest()
+                        // fireNotificationIntent(dataValue)
 
                     }
                 }
@@ -298,6 +286,8 @@ fun showRateus(){
             notificationManager.createNotificationChannel(channel)
         }
     }
+
+
 
 
 }

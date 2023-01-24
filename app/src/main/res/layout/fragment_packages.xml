@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.stream.views.PackagesFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="For Giggle packages to schools and institutions, please contact us for more."
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

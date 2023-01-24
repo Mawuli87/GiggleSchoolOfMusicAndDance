@@ -1,94 +1,93 @@
 package com.messieyawo.gigglemusicpiano.fragments.stream.views
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.messieyawo.gigglemusicpiano.databinding.ContentStreamBinding
 import com.messieyawo.gigglemusicpiano.databinding.FragmentStreamBinding
-import com.messieyawo.gigglemusicpiano.fragments.stream.upload.adapter.ImageAdapter
-import com.messieyawo.gigglemusicpiano.fragments.stream.upload.model.ImgModel
+import com.messieyawo.gigglemusicpiano.fragments.stream.upload.adapter.ListAdapter
+import com.messieyawo.gigglemusicpiano.fragments.stream.upload.model.Teacher
 
 
 class StreamFragment : Fragment() {
+    private var mStorage: FirebaseStorage? = null
+    private var mDatabaseRef:DatabaseReference? = null
+    private var mDBListener:ValueEventListener? = null
+    private lateinit var mTeachers:MutableList<Teacher>
+    private lateinit var listAdapter: ListAdapter
+    lateinit var bindingContent: ContentStreamBinding
 
-    private val database : FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val myReference : DatabaseReference = database.reference.child("MyPosts")
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setHasOptionsMenu(true)
+//    }
 
-    val userList = ArrayList<ImgModel>()
-    val imageNameList = ArrayList<String>()
-
-    lateinit var imageAdapter : ImageAdapter
-
-    private val firebaseStorage : FirebaseStorage = FirebaseStorage.getInstance()
-    val storageReference : StorageReference = firebaseStorage.reference
-
-
- lateinit var binding: FragmentStreamBinding
+    lateinit var binding: FragmentStreamBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentStreamBinding.inflate(layoutInflater)
+        bindingContent = ContentStreamBinding.inflate(layoutInflater)
 
-        return binding.root
-    }
+        //hide views
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        /**set adapter*/
+        bindingContent.mRecyclerView.setHasFixedSize(true)
+        bindingContent.mRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        // bindingContent.myDataLoaderProgressBar.visibility = View.VISIBLE
+        mTeachers = ArrayList()
+        listAdapter = ListAdapter(requireActivity(),mTeachers)
 
+        /**set Firebase Database*/
+        mStorage = FirebaseStorage.getInstance()
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("MyPosts")
+        mDBListener = mDatabaseRef!!.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireActivity(),error.message, Toast.LENGTH_SHORT).show()
+                bindingContent.progressCircle.visibility = View.INVISIBLE
 
-        retrieveDataFromDatabase()
-    }
+            }
 
-
-
-    private fun retrieveDataFromDatabase(){
-
-        //ChildEventListener
-
-        myReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
-                userList.clear()
-
-                for (eachUser in snapshot.children){
-
-                    val user = eachUser.getValue(ImgModel::class.java)
-
-                    if (user != null){
-
-                        println("userId: ${user.imgId}")
-                        println("userName: ${user.imageName}")
-                        println("userAge: ${user.title}")
-                        println("****************************")
-
-                        userList.add(user)
-
+                mTeachers.clear()
+                for (teacherSnapshot in snapshot.children){
+                    val upload = teacherSnapshot.getValue(Teacher::class.java)
+                   // upload!!.key = teacherSnapshot.key
+                    if (upload != null) {
+                        mTeachers.add(0,upload)
                     }
+                    Log.i("DATA",upload.toString())
 
-                    imageAdapter = ImageAdapter(requireActivity(),userList)
+                    listAdapter = ListAdapter(requireActivity(),mTeachers)
+                    bindingContent.mRecyclerView.adapter = listAdapter
 
-                    binding.recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-
-                    binding.recyclerView.adapter = imageAdapter
 
                 }
+                listAdapter.notifyDataSetChanged()
+                bindingContent.progressCircle.visibility = View.GONE
 
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
         })
 
+
+
+        return bindingContent.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mDatabaseRef!!.removeEventListener(mDBListener!!)
+    }
 
 
 

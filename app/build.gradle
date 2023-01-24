@@ -3,17 +3,18 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.messieyawo.gigglemusicpiano"
         minSdk 21
-        targetSdk 32
-        versionCode 2
-        versionName "1.0.2"
+        targetSdk 33
+        versionCode 6
+        versionName "1.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,6 +36,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    namespace 'com.messieyawo.gigglemusicpiano'
 }
 
 dependencies {
@@ -113,4 +115,11 @@ dependencies {
     //rounded imageview
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.26'
+
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+
+    implementation'com.google.android.gms:play-services-location:11.8.0'
+    implementation'com.google.android.gms:play-services-maps:11.8.0'
 }

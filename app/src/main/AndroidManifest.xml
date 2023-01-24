@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.messieyawo.gigglemusicpiano">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,21 +18,23 @@
         android:theme="@style/Theme.GiggleMusicPiano"
         android:usesCleartextTraffic="true"
         tools:replace="android:theme">
-        <activity android:name=".activities.SettingsActivity"/>
+        <activity
+            android:name=".fragments.stream.views.WebActivity"
+            android:exported="false" />
+        <activity android:name=".activities.SettingsActivity" />
         <activity
             android:name=".gallery.PhotoActivity"
-            android:theme="@style/Theme.GiggleMusicPiano.NoActionBar"
+            android:exported="false"
             android:parentActivityName=".activities.HomeActivity"
-            android:exported="false" />
-
+            android:theme="@style/Theme.GiggleMusicPiano.NoActionBar" />
         <activity
             android:name=".videos.VideoDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".videos.VideoListActivity"
-            android:theme="@style/Theme.GiggleMusicPiano.NoActionBar"
             android:exported="false"
-            android:parentActivityName=".activities.HomeActivity" />
+            android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/Theme.GiggleMusicPiano.NoActionBar" />
         <activity
             android:name=".activities.HomeActivity"
             android:exported="false"
@@ -51,6 +53,7 @@
         <receiver
             android:name=".fragments.stream.notification.Notification"
             android:enabled="true" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

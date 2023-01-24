@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.messieyawo.gigglemusicpiano.databinding.FragmentGalleryBinding
-import com.messieyawo.gigglemusicpiano.gallery.PhotoActivity
 
 
 import com.messieyawo.gigglemusicpiano.videos.VideoListActivity

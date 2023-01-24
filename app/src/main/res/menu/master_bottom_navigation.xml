@@ -13,7 +13,7 @@
 <!--        android:title="Stream" />-->
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/streamFragment"
         android:icon="@drawable/ic_stream"
         android:title="Stream" />
 

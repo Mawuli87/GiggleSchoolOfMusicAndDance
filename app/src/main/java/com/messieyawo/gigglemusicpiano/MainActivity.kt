@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         ))
 
         list!!.add(OnBoardingIemModel(
-            R.drawable.gifty,
+            R.drawable.splash_one,
             "Contact us now to start your journey with GIGGLE.",
             "With Giggle School Of Music And Dance, you are at the right place for a good start in your career. Quick Answer to inquiries. Call or WhatsApp 0553 592 014 / 0593155232"
         ))

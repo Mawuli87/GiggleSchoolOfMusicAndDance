@@ -69,7 +69,7 @@
 
         <Preference
             android:summary="Release version"
-            app:title="1.0.1">
+            app:title="1.2.1">
             <!--            <intent-->
             <!--                android:action="android.intent.action.VIEW"-->
             <!--                android:data="https://www.bersyte.com/" />-->

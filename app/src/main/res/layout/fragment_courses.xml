@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.stream.views.CoursesFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+
+
+
+
+
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="DANCE"
+                    app:text="1-Ballet \n a-Classical Dance : 1 year \n b-Story Telling Ballet: 1 year \n c-Contemporary Ballet : 1 year \n Day: Saturdays \n Sections: Morning / afternoon n\ Age : 5 years and above. \n \n \n 2-Salsa \n  a-Beginner : Basics n\ b- Intermediate : Pair dance or Couple dance \n c- Advanced : Stunt movement \n  Duration : 1 year \n Day: Saturdays \n Sections: Morning / afternoon \n  Age: 8 years and above. \n \n 3-Afrobeat Dance \n a-Beginner (Dance steps and names)  : 6 Months  \n b-Intermediate (Movement to rhythm) : 6 Months \n c-Advanced (Routine creation) : 1 year \n Day: Saturdays \n  Age: 10 years and above."
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+
+
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="MUSIC"
+                    app:text=" 1-Piano \n 1-Beginner : 1 year \n 2-Grade 1 : 1 year \n 3-Grade 2 : 1 year \n 4- Grade 3 : 1 year \n 5-Grade 4 : 1 year \n Day : Saturdays \n Sections: Morning / afternoon \n  Age: 7 years and above."
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Violin"
+                    app:text="1-Beginner : 1 year \n 2-Grade 1 : 1 year \n 3-Grade  2 : 1 year \n 4-Grade 3 : 1 year \n 5-Grade 4 : 1 year \n Day : Saturdays \n Sections: Morning / afternoon \n Age: 7 years and above \n"
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Guitar"
+                    app:text="1-Bass : 1 year \n 2-Lead  :  1 year \n  Day : Saturdays \n Sections: Morning / afternoon \n Age: 10 years and above \n"
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Drums"
+                    app:text=" 1-Jazz : 1 year \n 2-Praises : 1 year \n 3-Worship : 1 year \n 4-Reggae : 1 year \n 5-Adowa : 1 year \n 6-Funckey : 1 year \n 6-Day : Saturdays \n 7-Sections: Morning / afternoon \n 8-Age: 7 years and above. \n"
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Voice"
+                    app:text="Duration : 6 Months \n Day : Saturdays \n Sections: Morning / afternoon \n Age: 7 years and above \n"
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="CLASSES"
+                    app:text="1-Reading / Writing \n Day : Saturdays \n Sections: Morning / afternoon \n Age: 4 to 10 years.\n \n 2-Oral French \n Duration : 1 year \n Day: Saturdays \n Sections: Morning / afternoon\n Age: 5 years and above \n \n 3-OTHERS \n Swimming \n Duration : 1 year \n Day: Saturdays \n Age: 5 to 17 years old. \n \n 4-Taekwondo \n Duration : 1 year \n Day : Saturdays \nSections: Morning / afternoon \n Age: 7 years and above \n"
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+                <com.gouravkhunger.accolib.widget.Accordion
+                    android:id="@+id/accordion7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="OTHERS"
+                    app:text="1-INTENSIVE CLASS  FOR MUSIC( Contemporary ) \n Courses: Piano, Violin, Guitar and Drums \n Levels:  J.H.S,  S.H.S  and all adults \n Duration : 3 Months \n Time : Twice a week \n \n 2-INTENSIVE CLASS  FOR MUSIC( Art or Classical ) \n Courses: Piano, Violin, Guitar and Drums \n Levels:  J.H.S,  S.H.S  and all adults \n Duration : 6 Months / 1 year \n Time : Twice a week \n \n 3-INTENSIVE CLASS  FOR BALLET \n Courses: Classical, Story, and Contemporary \n Levels:  J.H.S,  S.H.S  all adults \n Duration : 3 Months / 6 Months \n Time : Twice a week \n \n 4-INTENSIVE CLASS  FOR SALSA \n Courses: Classical, Story, and Contemporary \n Levels:  J.H.S,  S.H.S  and all adults  \n Duration : 3 Months \n Time : Twice a week \n \n 5-INTENSIVE AFROBEAT DANCE \n Courses: Dance steps and names, Movement to rhythm \n Levels:  J.H.S,  S.H.S  and all adults \n Duration : 3 Months \n Time : Twice a week \n"
+                    app:titleSize="20sp"
+                    app:textSize="18sp"
+                    app:titleColor="@android:color/white"
+                    app:textColor="@android:color/darker_gray"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/cancel"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:padding="10dp"-->
+<!--                android:paddingLeft="0dp"-->
+<!--                android:paddingEnd="0dp"-->
+<!--                android:paddingRight="0dp"-->
+<!--                android:src="@drawable/ic_close_black_24dp" />-->
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -13,11 +13,11 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.messieyawo.gigglemusicpiano.activities.HomeActivity
-import com.messieyawo.gigglemusicpiano.fragments.stream.upload.model.Users
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.messieyawo.gigglemusicpiano.R
+import com.messieyawo.gigglemusicpiano.fragments.stream.upload.model.Teacher
 
 
 const val notificationID = 1
@@ -27,7 +27,7 @@ class Notification() : BroadcastReceiver() {
     private val database : FirebaseDatabase = FirebaseDatabase.getInstance()
     private val myReference : DatabaseReference = database.reference.child("MyUsers")
     private var mFireStore = FirebaseFirestore.getInstance()
-    val userList = ArrayList<Users>()
+    val userList = ArrayList<Teacher>()
     companion object {
         private var oldId:String = ""
        // private var userId:String = ""
@@ -54,21 +54,25 @@ class Notification() : BroadcastReceiver() {
 
                 for (eachUser in snapshot.children) {
 
-                    val user = eachUser.getValue(Users::class.java)
+                    val user = eachUser.getValue(Teacher::class.java)
                     //  userId = userList[0].postId
 
                     if (user != null) {
 
-                        println("title: ${user.title}")
-                        println("Post: ${user.post}")
+                        println("title: ${user.name}")
+                        println("Post: ${user.description}")
                         println("****************************")
 
                         userList.add(0, user)
-                        oldId = userList[0].postId
+                        oldId = userList[0].name.toString()
 
                          // val data1 = userList[0].title
                           // if (data1 != user.title){
-                               sendNotification(context,user.title,user.post)
+                        user.name?.let { user.description?.let { it1 ->
+                            sendNotification(context, it,
+                                it1
+                            )
+                        } }
                           // }
 
 
